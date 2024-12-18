@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" th="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Photos</title>
+</head>
+<body>
+    <h1>View Photo</h1>
+    <img alt="sample" th:src="@{'/product/photos/image/' + ${prodId}}" width="200"/>
+    <br/> <br/>
+    <a href="/product/create">Back to Create New Product</a>
+</body>
+</html>
+

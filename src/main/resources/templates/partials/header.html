@@ -1,0 +1,27 @@
+<!-- src/main/resources/templates/partials/header.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-['helvetica_now_display']">
+<div th:fragment="header">
+  <nav class="w-full flex justify-between px-5 py-3">
+    <h3 class="text-xl" th:href="@{/}">Atharva Gour</h3>
+    <div class="flex gap-5">
+      <a th:href="@{/shop}">Shop</a>
+      <a th:href="@{/cart}">Cart</a>
+      <a th:href="@{/shop}">My Account</a>
+      <a style="color: red" th:href="@{/logout}">Logout</a>
+    </div>
+  </nav>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/output.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div th:replace="~{partials/header :: header}"></div>
+
+<div th:if="${success != null && success.length > 0}"
+     class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+    <span class="inline-block mt-1 mb-1 text-white" th:text="${success}"></span>
+</div>
+<div th:if="${error != null && error.length > 0}"
+     class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md" style="background-color: red">
+    <span class="inline-block mt-1 mb-1 text-white" th:text="${error}"></span>
+</div>
+
+<div class="w-full h-full flex items-start px-20" style="padding-top: 30px; padding-bottom: 40px" >
+    <div class="flex flex-col items-start" style="width: 17%;">
+        <div class="flex items-center gap-2">
+            <h3>sort by</h3>
+            <form action="/shop" method="get">
+                <select class="border-[1px] px-2 py-1" name="sortby">
+                    <option value="popular">Popular</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </form>
+        </div>
+        <div class="flex flex-col mt-20">
+            <a class="block w-fit mb-2" href="#">New Collection</a>
+            <a class="block w-fit mb-2" href="#">All Products</a>
+            <a class="block w-fit mb-2" href="#">Discounted Products</a>
+        </div>
+        <div class="mt-32">
+            <a class="block w-fit mb-2" href="#">Filter by :</a>
+            <a class="block w-fit mb-2" href="#">Availability</a>
+            <a class="block w-fit mb-2" href="#">Discount</a>
+        </div>
+    </div>
+
+    <div style="width: 83%;display: flex; flex-wrap: wrap; column-gap: 15px; row-gap: 10px">
+        <div class=" flex flex-col" th:each="product : ${products}" >
+                <div class="w-60">
+                    <div class="w-full h-52 flex items-center justify-center"
+                         th:style="'background-color:' + ${product.backgroundColor}">
+                        <img class="h-[12rem]"
+                             th:src="@{'/product/photos/image/' + ${product.id}}"
+                             alt="Product Image for ${product.name}">
+                    </div>
+                    <div class="flex justify-between items-center px-4 py-4"
+                         th:style="'background-color:' + ${product.panelColor} + '; color:' + ${product.textColor}">
+                        <div>
+                            <h3 th:text="${product.name}"></h3>
+                            <h4 th:text="'₹ ' + ${product.price}"></h4>
+                        </div>
+                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" th:href="@{'/addToCart/' + ${product.id}}">
+                            <i class="ri-add-line"></i>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>

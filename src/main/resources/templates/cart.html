@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/output.css}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{partials/header :: header}"></div>
+
+<div class="w-full h-screen flex items-start px-20 py-20 gap-10" th:each="product : ${products}">
+    <div class="w-[30%] rounded-md overflow-hidden">
+        <div class="w-full flex justify-center items-center h-80 " th:style="'background-color:' + ${product.backgroundColor}">
+            <img class="h-[18rem]"
+                 th:src="@{'/product/photos/image/' + ${product.id}}"
+                 alt="Product Image for ${product.name}">
+        </div>
+        <div class="w-full flex justify-between px-5 py-4"
+             th:style="'background-color:' + ${product.panelColor}">
+            <h3 class="text-2xl" th:text="${product.name}"></h3>
+            <div class="flex items-center gap-2">
+                <i class="w-7 h-7 bg-white flex rounded-full items-center justify-center ri-add-line"></i>
+                <div class="px-2 py-1 rounded-md bg-white text-black">01</div>
+                <i class="w-7 h-7 bg-white flex rounded-full items-center justify-center ri-subtract-line"></i>
+            </div>
+        </div>
+        <div class="flex items-center text-white justify-between px-5 py-3" th:style="'background-color:' + ${product.textColor}">
+            <h4 class="text-lg">Net Total</h4>
+            <h2 class="text-lg" th:text="'₹ '+ ${product.price.intValue()}"></h2>
+        </div>
+    </div>
+
+    <div class="w-[70%]">
+        <h3 class="text-xl">Price Breakdown</h3>
+        <div class="px-10 mt-5">
+            <div class="flex mt-2">
+                <h4 class="w-1/3">Total MRP</h4>
+                <h4 th:text="'₹ ' + ${product.price}"></h4>
+            </div>
+            <div class="flex mt-2">
+                <h4 class="w-1/3">Discount on MRP</h4>
+                <h4 th:text="'₹ ' + ${product.discount.intValue()}" ></h4>
+            </div>
+            <div class="flex mt-2">
+                <h4 class="w-1/3">Platform Fee</h4>
+                <h4>₹ 20</h4>
+            </div>
+            <div class="flex mt-2">
+                <h4 class="w-1/3">Shipping Fee</h4>
+                <h4>FREE</h4>
+            </div>
+        </div>
+
+        <div class="w-full h-[1px] bg-black mt-10"></div>
+
+        <div class="flex mt-5">
+            <h3 class="w-1/3 text-xl">Total Amount</h3>
+            <h3 class="font-semibold text-xl text-green-600" th:text="'₹ '+ ${product.price.intValue() +20 + product.discount.intValue()}"></h3>
+        </div>
+
+        <form action="" method="post"></form>
+    </div>
+</div>
+
+<div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>

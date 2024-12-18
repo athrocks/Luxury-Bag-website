@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/output.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{partials/header :: header}"></div>
+
+<div class="w-full h-screen flex items-start px-20 py-20">
+    <div class="w-[25%] flex h-screen flex-col items-start">
+        <div class="flex flex-col">
+            <a class="block w-fit mb-2" th:href="@{/products}">All Products</a>
+            <a class="block w-fit mb-2" th:href="@{/create-product}">Create new product</a>
+        </div>
+    </div>
+
+    <div class="w-[75%] flex flex-col gap-5 h-screen">
+        <a class="text-red-500" th:href="@{/delete-all}">Delete all</a>
+        <div class="flex items-start gap-5">
+            <div class="w-60 bg-red-500" th:each="product : ${products}">
+                <div class="w-full h-52 bg-yellow-500"></div>
+                <div class="flex justify-between items-center px-4 py-4">
+                    <div>
+                        <h3 th:text="${product.name}">Clinge Bag</h3>
+                        <h4 th:text="'₹ ' + ${product.price}">₹ 1200</h4>
+                    </div>
+                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" th:href="@{/add-to-cart/{id}(id=${product.id})}">
+                        <i class="ri-add-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-start gap-5">
+            <div class="w-60 bg-red-500" th:each="product : ${products}">
+                <div class="w-full h-52 bg-yellow-500"></div>
+                <div class="flex justify-between items-center px-4 py-4">
+                    <div>
+                        <h3 th:text="${product.name}">Clinge Bag</h3>
+                        <h4 th:text="'₹ ' + ${product.price}">₹ 1200</h4>
+                    </div>
+                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" th:href="@{/add-to-cart/{id}(id=${product.id})}">
+                        <i class="ri-add-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>
