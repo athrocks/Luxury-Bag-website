@@ -49,7 +49,11 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
 - **MongoDB** running locally or a MongoDB Atlas cluster
 - **Node.js** and **npm** (for front-end dependencies)
 
-### Steps:
+---
+
+### How To Run The Code:  
+#### (Simply click run on intelliJ Idea or similar) or follow below steps:
+
 1. **Clone the repository**:  
    ```bash
    git clone https://github.com/athrocks/Luxury-Bag-website.git
