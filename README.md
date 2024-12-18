@@ -27,8 +27,10 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
    ![Cart](/src/main/resources/static/images/CartPage.png)
 
 7. **MongoDB Integration**
-  The application is connected to a MongoDB database to store user, product, and order information.
+   The application is connected to a MongoDB database to store user, product, and order information.
 
+8. **Logout Feature**:  
+   Users can log out of the system. Once logged out, they are redirected to the login page.
 
 ## Planned Features
 
