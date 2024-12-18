@@ -38,5 +38,3 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
 - **OAuth2 Login**: GitHub and Google OAuth2 login functionality for easier authentication.
 
 ---
-
-Feel free to replace the image placeholders with the actual images and make any further adjustments as needed!
