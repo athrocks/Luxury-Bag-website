@@ -6,7 +6,7 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
 
 1. **Login and Register Page**  
    Accessible at `localhost:8081/`  
-   ![Login and Register](image-placeholder)  
+   ![Login and Register](/src/main/resources/static/images/CartPage.png)  
 
 2. **Password Encryption**  
    User passwords are stored securely in the database using BCrypt encryption.  
