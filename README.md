@@ -6,7 +6,7 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
 
 1. **Login and Register Page**  
    Accessible at `localhost:8081/`  
-   ![Login and Register](/src/main/resources/static/images/CartPage.png)  
+   ![Login and Register](src/main/resources/static/images/indexPage.png)  
 
 2. **Password Encryption**  
    User passwords are stored securely in the database using BCrypt encryption.  
@@ -16,15 +16,15 @@ A premium luxury bag website built with Spring Boot 3 and Spring Security 6.
 
 4. **Create Product Feature**  
    Admins can create products at `localhost:8081/product/create`.  
-   ![Create Product](image-placeholder)  
+   ![Create Product](src/main/resources/static/images/CreateProductPage.png)  
 
 5. **Shop Feature**  
    A shopping page where all products are listed at `localhost:8081/shop`.  
-   ![Shop](image-placeholder)  
+   ![Shop](src/main/resources/static/images/ShopPage.png)  
 
 6. **Cart Feature**  
    Users can view and manage their cart at `localhost:8081/cart`.  
-   ![Cart](image-placeholder)
+   ![Cart](/src/main/resources/static/images/CartPage.png)
 
 7. **MongoDB Integration**
   The application is connected to a MongoDB database to store user, product, and order information.
